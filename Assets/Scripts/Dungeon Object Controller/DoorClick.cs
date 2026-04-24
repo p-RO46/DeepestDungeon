@@ -36,23 +36,7 @@ public class DoorClick : MonoBehaviour, MapObjClick
     {
         playerManager.MoveDungeon(doorDir);
 
-        switch (doorDir)
-        {
-            case Door.LEFT:
-                StartCoroutine(playerManager.WalkLeftRoutine());
-                break;
-            case Door.RIGHT:
-                StartCoroutine(playerManager.WalkRightRoutine());
-                break;
-            case Door.DOWN:
-                StartCoroutine(playerManager.WalkDownRoutine());
-                break;
-            case Door.UP:
-                StartCoroutine(playerManager.WalkUpRoutine());
-                break;
-            default:
-                break;
-        }
+        StartCoroutine(playerManager.MoveRoutine(doorDir));
     }
 
     private void UnknownDoorClick()

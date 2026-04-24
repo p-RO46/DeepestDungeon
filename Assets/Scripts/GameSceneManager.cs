@@ -16,8 +16,8 @@ public class GameSceneManager : MonoBehaviour
         // Player 위치 세팅.
         playerManager.playerR = MapManager.Instance.initRow;
         playerManager.playerC = MapManager.Instance.initCol;
-        playerManager.initY = playerManager.transform.position.y;
-        Debug.Log(playerManager.initY);
+        // playerManager.initY = playerManager.transform.position.y;
+        // Debug.Log(playerManager.initY);
         playerManager.MovePlayer();
 
         // Camera 위치 세팅.

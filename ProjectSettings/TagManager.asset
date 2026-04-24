@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2940293531
     locked: 0
+  - name: Corridor
+    uniqueID: 981585371
+    locked: 0
   - name: Dungeon
     uniqueID: 4029177605
     locked: 0

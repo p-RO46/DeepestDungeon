@@ -1,6 +1,6 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,8 +10,11 @@ public class PlayerManager : MonoBehaviour
     public int playerR;
     public int playerC;
 
+    [SerializeField] private float moveTime = 1f;
+    [SerializeField] private float jumpTime = 1f;
+    [SerializeField] private float jumpHeight = 2f;
     // public float initX;
-    public float initY = -2.4f;
+    // public float initY;
 
     private Dictionary<Door, Vector2Int> direction = new Dictionary<Door, Vector2Int>()
     {
@@ -63,64 +66,86 @@ public class PlayerManager : MonoBehaviour
         // 애니메이션 필요! 코루틴?
         Vector3 newPos = new Vector3(playerC * MapManager.col_distance, playerR * MapManager.row_distance, 0);
 
-        transform.position = newPos + new Vector3(0, initY, 0);
+        transform.position = newPos;
         Camera.main.transform.position = newPos + new Vector3(0, 0, -10);
     }
 
-    public IEnumerator WalkLeftRoutine()
+    public IEnumerator MoveRoutine(Door dir)
     {
-        // 왼쪽을 바라보도록
-        transform.localScale = new Vector3(1, 1, 1);
+        float elapsedTime = 0;
+        
+        bool isHorizontal = true;
+        float init = transform.position.x;
+        float end = playerC * MapManager.col_distance;
 
-        playerAnimator.SetBool("Run", true);
-        while (playerC * MapManager.col_distance < transform.position.x)
+        switch (dir)
         {
-            transform.Translate(new Vector3(-0.05f, 0, 0));
+            case Door.LEFT:
+                // 왼쪽을 바라보도록
+                transform.localScale = new Vector3(1, 1, 1);
+                playerAnimator.SetBool("Run", true);
+                break;
+            case Door.RIGHT:
+                // 오른쪽을 바라보도록
+                transform.localScale = new Vector3(-1, 1, 1);
+                playerAnimator.SetBool("Run", true);
+                break;
+            case Door.DOWN:
+            case Door.UP:
+                playerAnimator.SetTrigger("Jump");
+                yield return JumpRoutine();
+                isHorizontal = false;
+                init = transform.position.y;
+                end = playerR * MapManager.row_distance;
+                break;
+        }
+
+        while (elapsedTime < moveTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            Vector3 nextPos = transform.position;
+            if (isHorizontal)
+            {
+                nextPos.x = Mathf.Lerp(init, end, elapsedTime / moveTime);
+            }
+            else
+            {
+                nextPos.y = Mathf.Lerp(init, end, elapsedTime / moveTime);
+            }
+            transform.position = nextPos;
+
             yield return null;
         }
-        playerAnimator.SetBool("Run", false);
+
+        switch (dir)
+        {
+            case Door.LEFT:
+            case Door.RIGHT:
+                playerAnimator.SetBool("Run", false);
+                break;
+            default:
+                break;
+        }
 
         MovePlayer();
     }
-    public IEnumerator WalkRightRoutine()
-    {
-        // 오른쪽을 바라보도록
-        transform.localScale = new Vector3(-1, 1, 1);
 
-        playerAnimator.SetBool("Run", true);
-        while (transform.position.x < playerC * MapManager.col_distance)
+    private IEnumerator JumpRoutine()
+    {
+        float elapsedTime = 0;
+        float init = transform.position.y;
+        float end = init + jumpHeight;
+
+        while (elapsedTime < jumpTime)
         {
-            transform.Translate(new Vector3(0.05f, 0, 0));
+            elapsedTime += Time.deltaTime;
+
+            Vector3 nextPos = transform.position;
+            nextPos.y = Mathf.Lerp(init, end, elapsedTime / jumpTime);
+            transform.position = nextPos;
+
             yield return null;
         }
-        playerAnimator.SetBool("Run", false);
-
-        MovePlayer();
-    }
-
-    public IEnumerator WalkDownRoutine()
-    {
-        playerAnimator.SetBool("Jump", true);
-        while (playerR * MapManager.row_distance < transform.position.y)
-        {
-            transform.Translate(new Vector3(0, -0.05f, 0));
-            yield return null;
-        }
-        playerAnimator.SetBool("Jump", false);
-
-        MovePlayer();
-    }
-
-    public IEnumerator WalkUpRoutine()
-    {
-        playerAnimator.SetBool("Jump", true);
-        while (transform.position.y < playerR * MapManager.row_distance)
-        {
-            transform.Translate(new Vector3(0, 0.05f, 0));
-            yield return null;
-        }
-        playerAnimator.SetBool("Jump", false);
-
-        MovePlayer();
     }
 }
