@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "Player",
+    "maps": [
+        {
+            "name": "Dungeon",
+            "id": "6580f98a-ca6b-495e-b3b2-c430156fd7fe",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "4e9ada00-e243-45fb-a718-18086fa0636c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AskMalt",
+                    "type": "Button",
+                    "id": "c5011b52-915d-4fb7-a04d-4f3ec328eea5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "184d19ee-1221-48fa-a3d5-8d5663a86c1f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62c599c5-0302-473e-8915-4ba16c5b5c99",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AskMalt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

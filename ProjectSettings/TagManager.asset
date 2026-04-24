@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Door
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2940293531
+    locked: 0
+  - name: Dungeon
+    uniqueID: 4029177605
+    locked: 0
+  - name: Dungeon Objects
+    uniqueID: 2432015895
+    locked: 0
+  - name: Dungeon Obj Text
+    uniqueID: 2272600071
+    locked: 0
+  - name: Player
+    uniqueID: 510436103
+    locked: 0
+  - name: Speech Bubble
+    uniqueID: 2823787713
+    locked: 0
+  m_RenderingLayers:
+  - Default
