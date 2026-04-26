@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Player
   - Door
-  - 
+  - Post Processing
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
   - name: Corridor
     uniqueID: 981585371
     locked: 0
+  - name: Open Door
+    uniqueID: 1461034953
+    locked: 0
   - name: Dungeon
     uniqueID: 4029177605
     locked: 0
@@ -58,6 +61,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 510436103
+    locked: 0
+  - name: Spike
+    uniqueID: 624927487
     locked: 0
   - name: Speech Bubble
     uniqueID: 2823787713

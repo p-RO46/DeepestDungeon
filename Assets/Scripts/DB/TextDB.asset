@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08742c503085b4cad508652ec5fab6, type: 3}
+  m_Name: TextDB
+  m_EditorClassIdentifier: Assembly-CSharp::TextDB
+  malt_start:
+  - {fileID: 4900000, guid: 12b53ac5690560d4a936ce5f502b49ae, type: 3}
+  - {fileID: 4900000, guid: e06e6eb259c256d40a96c747affcaf9a, type: 3}
+  - {fileID: 4900000, guid: ea4780cd7dc4ac64ca893ba023fd5e9c, type: 3}
+  - {fileID: 4900000, guid: 52e3b96267d181a41af4271e1cc611af, type: 3}
+  - {fileID: 4900000, guid: 36e40b274726e5343ad7e06e1e4a3ca0, type: 3}
+  malt_gift:
+  - {fileID: 4900000, guid: 8e31878b2af41cc44962a41634afc8f3, type: 3}
+  - {fileID: 4900000, guid: 794ab8e30e83ea048923189e9d61265a, type: 3}
+  - {fileID: 4900000, guid: b0ed6789dadc03b48b76e4ce2ed7216a, type: 3}
+  - {fileID: 4900000, guid: 5509f96fcb6b81e49adef6c1954f3fe5, type: 3}
+  - {fileID: 4900000, guid: 3c256fa090942d246a4bc266d5b649e6, type: 3}
+  malt_trap:
+  - {fileID: 4900000, guid: 4ca1ca8474718f84d98e830e566624fc, type: 3}
+  - {fileID: 4900000, guid: 79488f0ea701f534eabe4736f6d8c1c5, type: 3}
+  - {fileID: 4900000, guid: 4ae05362940e64d42b063b6859cb7fa4, type: 3}
+  - {fileID: 4900000, guid: 248f41dc95bb9944a9301fa454f82c0a, type: 3}
+  - {fileID: 4900000, guid: f57e3f493621adb4f9942916081eed99, type: 3}
+  malt_thirst: {fileID: 4900000, guid: 8fb645f20dae2be4bb20408d1583ee2c, type: 3}
+  malt_watered: {fileID: 4900000, guid: 33a20baab5d412c469dc7b05e90189d4, type: 3}
+  floor_start:
+  - {fileID: 4900000, guid: fb69633ca1a7c6d4bbdfa947e76034df, type: 3}
+  - {fileID: 4900000, guid: bc1bc6f07147d9944953d6203e62f021, type: 3}
+  - {fileID: 4900000, guid: 30919de5308e2cd43bb6d4e66efe1dec, type: 3}
+  - {fileID: 4900000, guid: 81ef8639ad34b7744b93c66d5b103e82, type: 3}
+  - {fileID: 4900000, guid: 8c932535f385e7143819acb05833de53, type: 3}
+  ending:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  keys:
+  - MALT
+  - BOB
+  values:
+  - {fileID: 8564791291489354191, guid: b23252d869e6d8f43b417efb1e9554ea, type: 3}
+  - {fileID: -6019082432255299152, guid: 4d8c00a7de4a41a49ba6bece647e9c1e, type: 3}

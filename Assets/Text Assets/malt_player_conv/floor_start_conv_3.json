@@ -1,0 +1,36 @@
+{
+        "conv":[
+            {
+                "speaker":"BOB",
+                "log":"Looks like we're on a new floor again!"
+            },
+            {
+                "speaker":"MALT",
+                "log":"I can smell the Boss Room! I think we're almost there."
+                },
+            {
+                "speaker":"BOB",
+                "log":"Hooray! I want to get back quickly and make some beer!"
+            },
+            {
+                "speaker":"MALT",
+                "log":"Right! Get back quickly and make... wait, beer?"
+            },
+            {
+                "speaker":"BOB",
+                "log":"I've raised my malts with love to make the highest quality beer!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Yes, I'm talking about your family, buddy!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"I'm sure my malts will produce the best flavor, right?"
+            },
+            {
+                "speaker":"MALT",
+                "log":"Oh.............. right. I see, bro."
+            }
+        ]    
+}

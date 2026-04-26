@@ -20,7 +20,9 @@ public class GameSceneManager : MonoBehaviour
         // Debug.Log(playerManager.initY);
         playerManager.MovePlayer();
 
+        if (playerManager.playerRoutine == null) playerManager.playerRoutine = StartCoroutine(playerManager.MoveStartRoutine());
+
         // Camera 위치 세팅.
-        Camera.main.transform.position = new Vector3(MapManager.Instance.initCol * MapManager.col_distance, 0, -10);
+        Camera.main.transform.position = new Vector3(MapManager.Instance.initCol * MapManager.Instance.col_distance, 0, -10);
     }
 }

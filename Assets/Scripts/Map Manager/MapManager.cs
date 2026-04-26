@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
     private static MapManager instance = null;
 
     public List<Dungeon[,]> fullDungeonData = new List<Dungeon[,]>();
+    public Dictionary<Point, GameObject> currentFloorInstances = new Dictionary<Point, GameObject>();
 
     [Header("Map Settings")]
     public List<Floor> floorData;
@@ -28,9 +29,11 @@ public class MapManager : MonoBehaviour
     public int initRow = 0;
     public int initCol;
 
+    public int maxFloor;
+
     [Header("Instantiate Settings")]
-    public static float row_distance = -12f;
-    public static float col_distance = 20f;
+    public float row_distance = -12f;
+    public float col_distance = 20f;
 
     private void Awake()
     {
@@ -65,6 +68,8 @@ public class MapManager : MonoBehaviour
         {
             fullDungeonData.Add(mapGenerator.GenerateFloor(floor.row, floor.column, floor.branchCount, floor.probability, floor.maxLength));
         }
+
+        maxFloor = fullDungeonData.Count;
     }
 
     public void SetCurrentFloor(PlayerManager playerManager)

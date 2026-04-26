@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class ThirstManager : MonoBehaviour
 {
     [SerializeField] private Transform _thirstPoint;
-    [SerializeField] private Material thirst_on;
-    [SerializeField] private Material thirst_off;
 
     private int maxCount;
     private List<Image> thirstPoint = new List<Image>();
@@ -18,7 +16,6 @@ public class ThirstManager : MonoBehaviour
         {
             Image image = child.GetComponent<Image>();
 
-            image.material = thirst_on;
             thirstPoint.Add(image);
             currentCount++;
         }
@@ -34,7 +31,7 @@ public class ThirstManager : MonoBehaviour
             return false;
         }
 
-        thirstPoint[currentCount].material = thirst_on;
+        thirstPoint[currentCount].enabled = true;
         currentCount++;
         return true;
     }
@@ -48,7 +45,7 @@ public class ThirstManager : MonoBehaviour
         }
 
         currentCount--;
-        thirstPoint[currentCount].material = thirst_off;
+        thirstPoint[currentCount].enabled = false;
         return true;
     }
 }

@@ -6,7 +6,7 @@ public abstract class ItemClick : MonoBehaviour, MapObjClick
     [SerializeField] private float fadeTime = 0.5f;
     [SerializeField] private SpriteRenderer textSprite;
 
-    private bool isClicked = false; // 중복 클릭 방지 플래그
+    public bool isClicked = false; // 중복 클릭 방지 플래그
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -14,7 +14,7 @@ public abstract class ItemClick : MonoBehaviour, MapObjClick
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void ObjClicked()
+    public virtual void ObjClicked()
     {
         if (isClicked) return;
 

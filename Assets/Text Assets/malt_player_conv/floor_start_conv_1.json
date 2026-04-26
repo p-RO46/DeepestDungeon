@@ -1,0 +1,36 @@
+{
+    "conv":[
+        {
+            "speaker":"BOB",
+            "log":"Huh? I just heard a strange noise!"
+        },
+        {
+            "speaker":"MALT",
+            "log":"Hmm... I think it means we can't go back up that way."
+        },
+        {
+            "speaker":"BOB",
+            "log":"Wait, what?"
+        },
+        {
+            "speaker":"BOB",
+            "log":"Does that mean we can't go back home?"
+        },
+        {
+            "speaker":"MALT",
+            "log":"No! I'm sure if we reach the Boss Room and break the curse, it'll be solved."
+        },
+        {
+            "speaker":"BOB",
+            "log":"Aha! I see! You're really smart."
+        },
+        {
+            "speaker":"BOB",
+            "log":"Then we have to find the Boss Room, right?"
+        },
+        {
+            "speaker":"MALT",
+            "log":"That's right, bro. Let's keep going!"
+        }
+    ]    
+}

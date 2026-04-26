@@ -1,0 +1,36 @@
+{
+    "conv":[
+        {
+            "speaker":"BOB",
+            "log":"WOW, we actually entered the dungeon!"
+        },
+        {
+            "speaker":"MALT",
+            "log":"This definitely seems like a great spot to set up your pub!"
+        },
+        {
+            "speaker":"MALT",
+            "log":"There are no monsters, but might be traps remaining."
+        },
+        {
+            "speaker":"BOB",
+            "log":"Traps? Then what do we do?"
+        },
+        {
+            "speaker":"MALT",
+           "log":"Don't worry!"
+        },
+        {
+            "speaker":"MALT",
+            "log":"I'm amazing at sniffing what is behind the door!"
+        },
+        {
+            "speaker":"MALT",
+            "log":"If you're curious, just ask me first!"
+        },
+        {
+            "speaker":"BOB",
+            "log":"Wow, you're the best malt in my life, ever!"
+        }
+    ]    
+}

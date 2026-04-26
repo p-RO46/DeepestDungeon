@@ -1,0 +1,24 @@
+{
+        "conv":[
+            {
+                "speaker":"MALT",
+                "log":"We're really almost there now. The scent of the Boss Room is everywhere."
+            },
+            {
+                "speaker":"BOB",
+                "log":"Alright! Wait for me, my pub! I'm coming!"
+                },
+            {
+                "speaker":"MALT",
+                "log":"..."
+            },
+            {
+                "speaker":"BOB",
+                "log":"You'll be with me, right?"
+            },
+            {
+                "speaker":"MALT",
+                "log":"Of course, BOB."
+            }
+        ]
+}

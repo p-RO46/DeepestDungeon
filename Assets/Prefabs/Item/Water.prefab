@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2022367225
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e84b11c4da4b4d14d99a007100a95772, type: 3}
@@ -120,7 +120,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8704488028114093083}
@@ -170,11 +170,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1862951401
-  m_SortingLayer: 4
+  m_SortingLayerID: -2022367225
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 7ef440884463b3346b61ebf8ecaf0845, type: 3}
+  m_Sprite: {fileID: -3792727972583716700, guid: d56d2389c0736d94f90cbe675d9731b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,7 +219,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 4, y: 5.12}
+  m_Size: {x: 0.7, y: 1}
   m_Direction: 0
 --- !u!114 &2224563684163643342
 MonoBehaviour:
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaterClick
   fadeTime: 0.5
   textSprite: {fileID: 5343747438196713719}
+  isClicked: 0
 --- !u!1 &6837940512060854301
 GameObject:
   m_ObjectHideFlags: 0
