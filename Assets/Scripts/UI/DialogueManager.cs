@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
 {
     private PlayerManager playerManager;
 
+    [SerializeField] private List<AudioClip> keyboards = new List<AudioClip>();
+
     [SerializeField] private string malt_name = "MALT";
     [SerializeField] private string player_name = "BOB";
 
@@ -39,6 +41,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private GameObject speechBox;
 
+    [SerializeField] private GameData gameData;
     [SerializeField] private TextDB textDB;
 
     [SerializeField] private float textSpeed = 0.05f;
@@ -60,11 +63,25 @@ public class DialogueManager : MonoBehaviour
 
         if (!isTrap)
         {
-            log.Add(new Dialogue("MALT", textDB.malt_gift[curFloor].text));
+            if(MapManager.Instance.currentFloor >= 3 && UnityEngine.Random.Range(0, 3) == 0)
+            {
+                log.Add(new Dialogue("MALT", textDB.malt_trap[curFloor].text));
+            }
+            else
+            {
+                log.Add(new Dialogue("MALT", textDB.malt_gift[curFloor].text));
+            }
         }
         else
         {
-            log.Add(new Dialogue("MALT", textDB.malt_trap[curFloor].text));
+            if (MapManager.Instance.currentFloor >= 3 && UnityEngine.Random.Range(0, 3) == 0)
+            {
+                log.Add(new Dialogue("MALT", textDB.malt_gift[curFloor].text));
+            }
+            else
+            {
+                log.Add(new Dialogue("MALT", textDB.malt_trap[curFloor].text));
+            }
         }
 
         if(printRoutine == null)
@@ -96,10 +113,52 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public IEnumerator EndingRoutine()
+    {
+        if (gameData == null) yield break;
+
+        speechBox.SetActive(true);
+
+        string json = "";
+        if (gameData.isDead)
+        {
+            json = textDB.deadEnd.text;
+        }
+        else if (gameData.totalScore < 2500)
+        {
+            json = textDB.ending[0].text;
+        }
+        else if (gameData.totalScore < 6500)
+        {
+            json = textDB.ending[1].text;
+        }
+        else
+        {
+            json = textDB.ending[2].text;
+        }
+        Conversation conv = JsonConvert.DeserializeObject<Conversation>(json);
+        yield return PrintText(conv.conv);
+    }
+
+    public IEnumerator StartRoutine()
+    {
+        if (gameData == null) yield break;
+
+        speechBox.SetActive(true);
+
+        string json = "";
+        json = textDB.starting.text;
+        Conversation conv = JsonConvert.DeserializeObject<Conversation>(json);
+        yield return PrintText(conv.conv);
+    }
+
+
     public IEnumerator PrintText(List<Dialogue> log)
     {
         endPrint = false;
         nextPrint = false;
+
+        AudioSource audioSource = GameObject.Find("SE Player").GetComponent<AudioSource>();
 
         // 1. 한 글자씩 출력
         // 2. 키 누를 시 전부 출력. 
@@ -114,6 +173,7 @@ public class DialogueManager : MonoBehaviour
             for (int i = 0; i < dlg.log.Length; i++)
             {
                 logText += dlg.log[i];
+                audioSource.PlayOneShot(keyboards[UnityEngine.Random.Range(0, 2)]);
                 text_log.text = logText;
                 yield return new WaitForSeconds(textSpeed);
 
@@ -135,7 +195,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         speechBox.SetActive(false);
-        playerManager.isBusy = false;
+        if(playerManager != null) playerManager.isBusy = false;
         printRoutine = null;
     }
 

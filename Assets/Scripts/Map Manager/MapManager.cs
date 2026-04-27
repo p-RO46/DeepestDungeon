@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 // 처음부터 모든 맵을 만들고 그 정보를 저장하는 싱글톤 객체.
 
@@ -22,6 +23,8 @@ public class MapManager : MonoBehaviour
     public List<Dungeon[,]> fullDungeonData = new List<Dungeon[,]>();
     public Dictionary<Point, GameObject> currentFloorInstances = new Dictionary<Point, GameObject>();
 
+    public GameData gameData;
+
     [Header("Map Settings")]
     public List<Floor> floorData;
 
@@ -29,11 +32,13 @@ public class MapManager : MonoBehaviour
     public int initRow = 0;
     public int initCol;
 
-    public int maxFloor;
+    public int maxFloor = 5;
 
     [Header("Instantiate Settings")]
     public float row_distance = -12f;
     public float col_distance = 20f;
+
+    private bool isInit = false;
 
     private void Awake()
     {
@@ -62,6 +67,12 @@ public class MapManager : MonoBehaviour
 
     public void InitializeMap()
     {
+        if (isInit) return;
+
+        gameData.totalScore = 0;
+        gameData.totalThirst = 3;
+        gameData.isDead = false;
+
         MapGenerator mapGenerator = new MapGenerator();
 
         foreach(Floor floor in floorData)
@@ -70,6 +81,7 @@ public class MapManager : MonoBehaviour
         }
 
         maxFloor = fullDungeonData.Count;
+        isInit = true;
     }
 
     public void SetCurrentFloor(PlayerManager playerManager)

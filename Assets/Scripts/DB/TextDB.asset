@@ -32,6 +32,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: f57e3f493621adb4f9942916081eed99, type: 3}
   malt_thirst: {fileID: 4900000, guid: 8fb645f20dae2be4bb20408d1583ee2c, type: 3}
   malt_watered: {fileID: 4900000, guid: 33a20baab5d412c469dc7b05e90189d4, type: 3}
+  starting: {fileID: 4900000, guid: 915c654457fa14a4fb8b531ca7bfa8a9, type: 3}
   floor_start:
   - {fileID: 4900000, guid: fb69633ca1a7c6d4bbdfa947e76034df, type: 3}
   - {fileID: 4900000, guid: bc1bc6f07147d9944953d6203e62f021, type: 3}
@@ -39,11 +40,10 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 81ef8639ad34b7744b93c66d5b103e82, type: 3}
   - {fileID: 4900000, guid: 8c932535f385e7143819acb05833de53, type: 3}
   ending:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4900000, guid: 293b3e4bd0c866941b854e3352890f7d, type: 3}
+  - {fileID: 4900000, guid: e77983deb5c02974aa9484908d7701de, type: 3}
+  - {fileID: 4900000, guid: c9d1bde7761156641a966a39de42817b, type: 3}
+  deadEnd: {fileID: 4900000, guid: fe5a3477ba459af4a9b7b0cdc2b1d7a6, type: 3}
   keys:
   - MALT
   - BOB

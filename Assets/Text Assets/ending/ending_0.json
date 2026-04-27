@@ -1,0 +1,52 @@
+{
+    "conv":[
+            {
+                "speaker":"MALT",
+                "log":"And so, we arrived at the Boss Room..."
+            },
+            {
+                "speaker":"MALT",
+                "log":"Yes, we were finally able to open the pub we had always dreamed of!"
+                },
+            {
+                "speaker":"MALT",
+                "log":"BOB, how are you feeling?"
+            },
+            {
+                "speaker":"BOB",
+                "log":"It is perfect!... but, there’s a slight problem."
+            },
+            {
+                "speaker":"BOB",
+                "log":"The dungeon is so deep underground that we need infrastructure, like an elevator, to bring customers in."
+            },
+            {
+                "speaker":"BOB",
+                "log":"We came all the way here to save on RENT! Now the elevator installation costs even more!"
+            },
+            {
+                "speaker":"MALT",
+                "log":"But we found a lot of treasure here, didn't we?"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Hmm, we did find some. But... honestly, it’s nowhere near enough. It’s worth much less than I thought."
+            },
+            {
+                "speaker":"MALT",
+                "log":"Then what are you going to do?"
+            },
+            {
+                "speaker":"BOB",
+                "log":"I have to go back to making Malts!"
+            },
+            {
+                "speaker":"MALT",
+                "log":"Then what about the beer? Are you going to make it?"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Well, someday?"
+            }
+        ]
+}

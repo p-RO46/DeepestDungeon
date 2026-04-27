@@ -1,0 +1,60 @@
+{
+        "conv":[
+            {
+                "speaker":"BOB",
+                "log":"Once upon a time, there lived BOB."
+            },
+            {
+                "speaker":"BOB",
+                "log":"BOB worked at growing barley and turning it into malt."
+                },
+            {
+                "speaker":"BOB",
+                "log":"Because he loved beer so much, he put his heart and soul into creating the malts for the most delicious beer possible."
+            },
+            {
+                "speaker":"BOB",
+                "log":"His dream was to one day open a beer pub and sell beer made from his own malt."
+            },
+            {
+                "speaker":"BOB",
+                "log":"However, it was not easy to get a shop because of the skyrocketing rent."
+            },
+            {
+                "speaker":"BOB",
+                "log":"Then, a lucky fairy appeared before him."
+            },
+            {
+                "speaker":"MALT",
+                "log":"Hello, buddy! My name is MALT! I'm the malt you created with love!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Oh my goodness! I'm not seeing things, am I?"
+            },
+            {
+                "speaker":"MALT",
+                "log":"Of course not! I know your troubles. I'll provide a solution for you!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Good heavens, thank you so much! What is the solution?"
+            },
+            {
+                "speaker":"MALT",
+                "log":"It's to open a shop deep inside an abandoned dungeon! There's no owner, so it's free!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"What! But the dungeon must have been locked tight a long time ago?"
+            },
+            {
+                "speaker":"MALT",
+                "log":"Don't worry! I can open it with my magic powers!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Oh, you truly are a lovely MALT. Alright, let's head out right now!"
+            }
+        ]
+}

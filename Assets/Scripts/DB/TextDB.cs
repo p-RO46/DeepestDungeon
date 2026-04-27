@@ -21,8 +21,10 @@ public class TextDB : ScriptableObject, ISerializationCallbackReceiver
     public TextAsset malt_watered;
 
     [Header("Conversation")]
+    public TextAsset starting;
     public List<TextAsset> floor_start = new List<TextAsset>();
     public List<TextAsset> ending = new List<TextAsset>();
+    public TextAsset deadEnd;
 
     [Header("Speaker Name & Sprite")]
     // 직렬화를 위한 리스트

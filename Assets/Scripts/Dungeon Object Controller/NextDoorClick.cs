@@ -25,6 +25,8 @@ public class NextDoorClick : MonoBehaviour, MapObjClick
         SpriteRenderer doorRenderer = GetComponent<SpriteRenderer>();
         yield return playerManager.MoveNextFloorRoutine(doorRenderer);
 
+        Debug.Log(MapManager.Instance.currentFloor);
+
         if (MapManager.Instance.currentFloor == MapManager.Instance.maxFloor - 1)
         {
             // 엔딩 씬으로 이동

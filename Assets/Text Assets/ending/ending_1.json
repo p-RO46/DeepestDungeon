@@ -1,0 +1,56 @@
+{
+    "conv":[
+            {
+                "speaker":"MALT",
+                "log":"And so, we arrived at the Boss Room..."
+            },
+            {
+                "speaker":"MALT",
+                "log":"Yes, we were finally able to open the pub we had always dreamed of!"
+                },
+            {
+                "speaker":"BOB",
+                "log":"Hooray!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"It is perfect!... but, there’s a slight problem."
+            },
+            {
+                "speaker":"BOB",
+                "log":"To be honest, I barely managed to create a path connecting the surface and the dungeon by selling the treasures I found..."
+            },
+            {
+                "speaker":"BOB",
+                "log":"But after that, I ended up completely broke!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"I had to sell the fields where I raised the barleys to decorate the shop."
+            },
+            {
+                "speaker":"BOB",
+                "log":"After that... my magic friend MALT disappeared."
+            },
+            {
+                "speaker":"BOB",
+                "log":"I make beer now, but I really wonder where MALT is and what he’s doing."
+            },
+            {
+                "speaker":"BOB",
+                "log":"Without him, I never would have achieved this dream!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"Ahhh, my friend! The friend who could have become the greatest beer!"
+            },
+            {
+                "speaker":"BOB",
+                "log":"To honor him, I always tell his heroic tales to the customers who have traveled all the way to this deep place."
+            },
+            {
+                "speaker":"BOB",
+                "log":"Yes, though nobody believes it!"
+            }
+        ]
+}

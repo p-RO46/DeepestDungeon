@@ -5,22 +5,26 @@ using UnityEngine.UI;
 public class ThirstManager : MonoBehaviour
 {
     [SerializeField] private Transform _thirstPoint;
+    public GameData gameData;
 
-    private int maxCount;
+    private int maxCount = 3;
     private List<Image> thirstPoint = new List<Image>();
     private int currentCount = 0;
 
     private void Start()
     {
+        int count = gameData.totalThirst;
+        currentCount = count;
         foreach(Transform child in _thirstPoint)
         {
             Image image = child.GetComponent<Image>();
-
             thirstPoint.Add(image);
-            currentCount++;
         }
 
-        maxCount = currentCount;
+        for(int i = maxCount - 1; i >= currentCount; i--)
+        {
+            thirstPoint[i].enabled = false;
+        }
     }
 
     public bool AddPoint()
@@ -33,6 +37,7 @@ public class ThirstManager : MonoBehaviour
 
         thirstPoint[currentCount].enabled = true;
         currentCount++;
+        gameData.totalThirst = currentCount;
         return true;
     }
 
@@ -45,6 +50,7 @@ public class ThirstManager : MonoBehaviour
         }
 
         currentCount--;
+        gameData.totalThirst = currentCount;
         thirstPoint[currentCount].enabled = false;
         return true;
     }

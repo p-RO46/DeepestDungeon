@@ -8,5 +8,8 @@ public class WaterClick : ItemClick
         // 씬의 유일 컴포넌트라서 이렇게 찾아줌
         ThirstManager thirstManager = FindAnyObjectByType<ThirstManager>();
         thirstManager.AddPoint();
+
+        SEPlayer sePlayer = GameObject.Find("SE Player").GetComponent<SEPlayer>();
+        sePlayer.WaterSound();
     }
 }

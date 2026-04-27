@@ -67,6 +67,17 @@
                     "action": "SkipPrint",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0dca209-88f1-4b73-9f46-415385a917e0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipPrint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -11,5 +11,8 @@ public class CoinClick : ItemClick
         // 씬의 유일 컴포넌트라서 이렇게 찾아줌
         ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
         scoreManager.AddScore(Random.Range(minScore, maxScore));
+
+        SEPlayer sePlayer = GameObject.Find("SE Player").GetComponent<SEPlayer>();
+        sePlayer.CoinSound();
     }
 }

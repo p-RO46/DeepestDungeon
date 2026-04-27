@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    public GameData gameData;
+
     public DialogueManager dlgManager;
     public Animator playerAnimator;
     private MapManager mapManager;
@@ -34,7 +37,14 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Audio Clip")]
     [SerializeField] private AudioClip door;
+    [SerializeField] private AudioClip door_close;
     [SerializeField] private AudioClip walk;
+    [SerializeField] private AudioClip drop;
+    [SerializeField] private AudioClip player_drop;
+    [SerializeField] private AudioClip fountain;
+    [SerializeField] private AudioClip noise;
+
+    private bool isFountainOn = false;
 
     private Dictionary<Door, Vector2Int> direction = new Dictionary<Door, Vector2Int>()
     {
@@ -114,6 +124,7 @@ public class PlayerManager : MonoBehaviour
 
         AudioSource audioSource = GameObject.Find("SE Player").GetComponent<AudioSource>();
         audioSource.clip = walk;
+        AudioSource fountainPlayer = GameObject.Find("FountainPlayer").GetComponent<AudioSource>();
 
         if (dir == Door.LEFT)
         {
@@ -152,6 +163,16 @@ public class PlayerManager : MonoBehaviour
                     // µü ÇÑ¹ø ½ÇÇà
                     Camera.main.transform.position = newPos + new Vector3(0, 0, -10);
                     camMoved = true;
+                    if (isFountainOn)
+                    {
+                        fountainPlayer.Stop();
+                        isFountainOn = false;
+                    }
+                    else if (mapManager.fullDungeonData[mapManager.currentFloor][playerC, playerR].type == MapType.GIFT)
+                    {
+                        fountainPlayer.Play();
+                        isFountainOn = true;
+                    }
                 }
                 elapsedTime += Time.deltaTime;
 
@@ -196,6 +217,16 @@ public class PlayerManager : MonoBehaviour
                     // µü ÇÑ¹ø ½ÇÇà
                     Camera.main.transform.position = newPos + new Vector3(0, 0, -10);
                     camMoved = true;
+                    if (isFountainOn)
+                    {
+                        fountainPlayer.Stop();
+                        isFountainOn = false;
+                    }
+                    else if (mapManager.fullDungeonData[mapManager.currentFloor][playerC, playerR].type == MapType.GIFT)
+                    {
+                        fountainPlayer.Play();
+                        isFountainOn = true;
+                    }
                 }
                 elapsedTime += Time.deltaTime;
 
@@ -223,6 +254,16 @@ public class PlayerManager : MonoBehaviour
                     // µü ÇÑ¹ø ½ÇÇà
                     Camera.main.transform.position = newPos + new Vector3(0, 0, -10);
                     camMoved = true;
+                    if (isFountainOn)
+                    {
+                        fountainPlayer.Stop();
+                        isFountainOn = false;
+                    }
+                    else if (mapManager.fullDungeonData[mapManager.currentFloor][playerC, playerR].type == MapType.GIFT)
+                    {
+                        fountainPlayer.Play();
+                        isFountainOn = true;
+                    }
                 }
                 elapsedTime += Time.deltaTime * 2;
 
@@ -232,6 +273,7 @@ public class PlayerManager : MonoBehaviour
 
                 yield return null;
             }
+            audioSource.PlayOneShot(player_drop);
         }
         else if(dir == Door.UP)
         {
@@ -251,6 +293,16 @@ public class PlayerManager : MonoBehaviour
                     // µü ÇÑ¹ø ½ÇÇà
                     Camera.main.transform.position = newPos + new Vector3(0, 0, -10);
                     camMoved = true;
+                    if (isFountainOn)
+                    {
+                        fountainPlayer.Stop();
+                        isFountainOn = false;
+                    }
+                    else if (mapManager.fullDungeonData[mapManager.currentFloor][playerC, playerR].type == MapType.GIFT)
+                    {
+                        fountainPlayer.Play();
+                        isFountainOn = true;
+                    }
                 }
                 elapsedTime += Time.deltaTime;
 
@@ -271,8 +323,9 @@ public class PlayerManager : MonoBehaviour
             nextDoors.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             nextDoors.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         }
+        audioSource.PlayOneShot(door_close);
 
-        if(mapManager.fullDungeonData[mapManager.currentFloor][playerC, playerR].type == MapType.GIFT)
+        if (mapManager.fullDungeonData[mapManager.currentFloor][playerC, playerR].type == MapType.GIFT)
         {
             Transform fountain = mapManager.currentFloorInstances[new Point(playerR, playerC)].transform.Find("fountain");
             FountainClick fc = fountain.GetComponent<FountainClick>();
@@ -300,7 +353,9 @@ public class PlayerManager : MonoBehaviour
 
                 yield return null;
             }
-
+            audioSource.PlayOneShot(drop);
+            gameData.isDead = true;
+            yield return new WaitForSeconds(0.8f);
             SceneManager.LoadScene("EndingScene");
         }
 
@@ -360,6 +415,7 @@ public class PlayerManager : MonoBehaviour
 
         SpriteRenderer openRenderer = doorRenderer.transform.Find("open").gameObject.GetComponent<SpriteRenderer>();
         SpriteRenderer closeRenderer = doorRenderer.transform.Find("close").gameObject.GetComponent<SpriteRenderer>();
+        AudioSource audioSource = GameObject.Find("SE Player").GetComponent<AudioSource>();
 
         float elapsedTime = 0;
         float init = transform.position.y;
@@ -378,6 +434,8 @@ public class PlayerManager : MonoBehaviour
 
         openRenderer.enabled = false;
         closeRenderer.enabled = true;
+        audioSource.PlayOneShot(door_close);
+        
 
         yield return new WaitForSeconds(1f);
         playerRoutine = null;
@@ -388,6 +446,7 @@ public class PlayerManager : MonoBehaviour
     {
         isBusy = true;
 
+        AudioSource audioSource = GameObject.Find("SE Player").GetComponent<AudioSource>();
         Vector3 initPos = transform.position;
         float elapsedTime = 0;
         float end = transform.position.y;
@@ -405,6 +464,11 @@ public class PlayerManager : MonoBehaviour
         }
 
         transform.position = initPos;
+        audioSource.PlayOneShot(player_drop);
+        if(mapManager.currentFloor != 0)
+        {
+            audioSource.PlayOneShot(noise);
+        }
         yield return new WaitForSeconds(0.1f);
 
         playerRoutine = null;

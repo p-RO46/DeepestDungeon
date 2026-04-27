@@ -128,7 +128,7 @@ public class CurrentFloorManager : MonoBehaviour
                     {
                         // 3. 아이템 종류
                         GameObject item = item_coin;
-                        if (Random.value < 0.2) item = item_water;
+                        if (Random.value < 0.1) item = item_water;
 
                         Instantiate(item, instance.transform.position + shuffled[i], Quaternion.identity, instance.transform);
                     }
@@ -140,6 +140,8 @@ public class CurrentFloorManager : MonoBehaviour
                 {
                     instance.transform.Find("load_down").gameObject.SetActive(true);
                     doors[2].GetComponent<Collider2D>().enabled = true;
+                    doors[2].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                    doors[2].transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
                 }
                 if (dungeon.type != MapType.START)
                 {
